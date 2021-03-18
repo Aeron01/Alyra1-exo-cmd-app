@@ -11,29 +11,25 @@ if (isNaN(process.argv[2])) {
 }
 let sec = Number(process.argv[2])
 let isRun = true
-const guess = (userGuess, secret) => {
-  if (isNaN(userGuess)) {
-    console.log(chalk.redBright(`${userGuess} n'est pas un nombre`))
-    isRun = true
-  }
-  else if (userGuess < secret) {
-    return console.log(chalk.redBright('nombre trop petit'))
-  } else if (userGuess > secret) {
-    return console.log(chalk.redBright('nombre trop grand'))
 
-  } else if (userGuess === secret) {
-    return console.log(chalk.greenBright('Bravo!'))
-    isRun = false
-  }
-
-
-}
 
 
 
 while (isRun) {
   const user = readlineSync.question('Quelle est le code ? ')
+  const guess = (userGuess, secret) => {
+    if (userGuess < secret) {
+      return console.log(chalk.redBright('nombre trop petit'))
+    } else if (userGuess > secret) {
+      return console.log(chalk.redBright('nombre trop grand'))
+    } else if (isNaN(userGuess)) {
+      console.log(chalk.redBright(`${userGuess} n'est pas un nombre`))
+      let isRun = true
+    }
+    isRun = false
 
+
+  }
   guess(user, sec)
 }
 
