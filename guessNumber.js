@@ -23,7 +23,7 @@ while (isRun) {
     } else if (userGuess > secret) {
       return console.log(chalk.redBright('nombre trop grand'))
     } else if (isNaN(userGuess)) {
-      console.log(chalk.redBright(`${userGuess} n'est pas un nombre`))
+      return console.log(chalk.redBright(`${userGuess} n'est pas un nombre`))
       let isRun = true
     }
     isRun = false
