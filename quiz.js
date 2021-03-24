@@ -25,4 +25,4 @@ Qst5 === 0 ? note++ : note = 0
 
 
 
-console.log(`Votre note est de ${note} bonne réponse sur 5.`)
+console.log(`Votre note est de ${(chalk.blueBright(note))} bonne réponse sur 5.`)
