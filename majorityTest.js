@@ -2,8 +2,20 @@ const chalk = require('chalk');
 const readlineSync = require('readline-sync');
 
 const firstName = readlineSync.question('Quelle est votre Prénom ? ');
+if (firstName.length === 0) {
+  console.log('Désoler, mais vous devez renseigner obligatoirement votre prénom.')
+  process.exit(1)
+}
 const lastName = readlineSync.question('Quelle est votre Nom ? ');
+if (lastName.length === 0) {
+  console.log('Désoler, mais vous devez renseigner obligatoirement votre nom.')
+  process.exit(1)
+}
 const age = readlineSync.question('Quelle âge avez vous ? ');
+if (age === '0' || age.length === 0) {
+  console.log('Désoler, mais vous devez renseigner obligatoirement votre age et il ne peut pas être égale à 0.')
+  process.exit(1)
+}
 const majo = 18 /*process.argv[2]*/
 
 const check = (age, majo) => {
